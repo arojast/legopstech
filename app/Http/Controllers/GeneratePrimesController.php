@@ -13,7 +13,7 @@ class GeneratePrimesController extends Controller
 {
     public function Generate(Request $request){
         
-        print $request->num."-controller";
+        //print $request->num;
         
         //generando $num eventos
         //intento con colas
@@ -23,5 +23,7 @@ class GeneratePrimesController extends Controller
         for($i=0;$i<$request->num;$i++){
             GeneratePrimesEvent::dispatch();
         }
+
+        print "ejecutando";
     }
 }

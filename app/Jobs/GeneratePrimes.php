@@ -24,7 +24,7 @@ class GeneratePrimes implements ShouldQueue
     public function __construct($num)
     {
         $this->num = $num;
-        print "<br>entra en job";
+        //print "<br>entra en job";
     }
 
     /**
@@ -35,10 +35,7 @@ class GeneratePrimes implements ShouldQueue
     public function handle()
     {
         //return GeneratePrimesEvent::dispatch();
-        echo "aqui";
-        print $this->num;
         for($i=1;$i<=$this->num;$i++){
-            print $i."-<br>";
             GeneratePrimesEvent::dispatch();
         }
     }
