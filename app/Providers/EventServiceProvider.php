@@ -7,6 +7,10 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use App\Events\GeneratePrimesEvent;
+use App\Listeners\CalculatePrimes;
+use App\Listeners\SendMailPrimes;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +22,11 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        
+        GeneratePrimesEvent::class => [
+            CalculatePrimes::class,
+            SendMailPrimes::class
+        ]
     ];
 
     /**
